@@ -2,7 +2,7 @@
    RESET Y VARIABLES
 ================================ */
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--bg:#000000;--surface:#0b0b0b;--surface-soft:#0f0f10;--white:#ffffff;--black:#000000;--text:#ffffff;--muted:#b3b3b3;--accent:#b3b3b3;--accent-light:rgba(179,179,179,0.12);--border:rgba(255,255,255,0.06);}
+:root{--bg:#1a1a1a;--surface:#242424;--surface-soft:#2d2d2d;--white:#ffffff;--black:#000000;--text:#ffffff;--muted:#b3b3b3;--accent:#b3b3b3;--accent-light:rgba(179,179,179,0.12);--border:rgba(255,255,255,0.06);}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
 
@@ -18,12 +18,13 @@ body, body * { color: var(--text) !important; }
 /* ================================
    LOADER
 ================================ */
-#loader{position:fixed;inset:0;background:var(--black);z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s ease,visibility 1s ease;}
+#loader{position:fixed;inset:0;background:var(--bg) url('backgroundA.jpg') center/cover no-repeat;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s ease,visibility 1s ease;}
+#loader::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.7);z-index:0;}
 #loader.hidden{opacity:0;visibility:hidden;}
-.loader-text{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,40px);font-weight:300;font-style:italic;color:var(--white);margin-bottom:3rem;letter-spacing:2px;opacity:0;animation:fadeUp 0.8s 0.3s forwards;}
-#loader-bar-wrap{width:min(300px,60vw);height:1px;background:rgba(226,232,240,0.12);position:relative;overflow:hidden;}
-.loader-bar{height:100%;width:0%;background:var(--accent);transition:width 0.05s linear;}
-.loader-percent{font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.3);margin-top:1rem;opacity:0;animation:fadeUp 0.8s 0.5s forwards;}
+.loader-text{position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,40px);font-weight:300;font-style:italic;color:var(--white);margin-bottom:3rem;letter-spacing:2px;opacity:0;animation:fadeUp 0.8s 0.3s forwards;}
+.loader-bar-wrap{position:relative;z-index:1;width:min(300px,60vw);height:4px;background:rgba(255,255,255,0.1);border-radius:4px;}
+.loader-bar{height:100%;width:0%;background:#0070f3;box-shadow:0 0 20px #0070f3, 0 0 5px #0070f3;transition:width 0.05s linear;border-radius:4px;}
+.loader-percent{position:relative;z-index:1;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.3);margin-top:1rem;opacity:0;animation:fadeUp 0.8s 0.5s forwards;}
 
 /* ================================
    MAIN
